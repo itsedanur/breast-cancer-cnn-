@@ -69,18 +69,18 @@ model = models.Sequential([
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-# 🏋️ Eğitim
+#  Eğitim
 history = model.fit(
     train_gen,
     epochs=epochs,
     validation_data=val_gen
 )
 
-# 💾 Kaydet
+#  Kaydet
 model.save('breast_cancer_model.h5')
 print("✅ Model kaydedildi: breast_cancer_model.h5")
 
-# 📊 Grafik
+#  Grafik
 plt.plot(history.history['accuracy'], label='Eğitim Doğruluğu')
 plt.plot(history.history['val_accuracy'], label='Doğrulama Doğruluğu')
 plt.xlabel('Epoch')
@@ -128,6 +128,6 @@ disp.plot(cmap=plt.cm.Blues)
 plt.title("Confusion Matrix")
 plt.show()
 
-# Sınıflandırma Raporu
+# Classification Report
 print("\n🧾 Classification Report:\n")
 print(classification_report(y_true, y_pred_classes, target_names=test_gen.class_indices.keys()))
